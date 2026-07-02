@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Infrastructure | IndustrialPro - Premium Metal Castings{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header" style="background-color: var(--primary-navy);">
+    <div class="container">
+        <h1 class="text-white fw-bold" data-aos="fade-up">World-Class Infrastructure</h1>
+        <p class="text-light" data-aos="fade-up" data-aos-delay="100">State-of-the-art facilities driving global manufacturing excellence.</p>
+    </div>
+</div>
+
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title mx-auto">Our Facilities</h2>
+            <p class="text-muted mx-auto mt-4" style="max-width: 800px;">Spanning over 100,000 square feet, our integrated manufacturing plant is equipped with cutting-edge technology, ensuring end-to-end control over quality, production speed, and material precision.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Infrastructure Categories Loop -->
+            {% regroup infrastructure by category as infra_list %}
+            
+            {% for category in infra_list %}
+            <div class="col-12" data-aos="fade-up">
+                <h4 class="fw-bold text-navy mb-4 border-bottom pb-2">{{ category.grouper }}</h4>
+                <div class="row g-4">
+                    {% for item in category.list %}
+                    <div class="col-md-4">
+                        <div class="card card-custom h-100 border-0 shadow-sm">
+                            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.title }}" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center bg-light-grey">
+                                <h6 class="fw-bold text-navy m-0">{{ item.title }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% empty %}
+            <!-- Fallback Static Content if DB is empty -->
+            <div class="col-12">
+                <div class="infra-block mb-5 shadow-sm rounded overflow-hidden" data-aos="fade-up">
+                    <div class="col-lg-6 p-0">
+                        <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Machine Shop" class="infra-img" style="height: 100%;">
+                    </div>
+                    <div class="col-lg-6 p-0 h-100">
+                        <div class="infra-content bg-light-grey p-5">
+                            <h3 class="text-navy fw-bold mb-4">CNC Machine Shop</h3>
+                            <p class="text-muted mb-4" style="line-height: 1.8;">Our machining division houses 4-axis and 5-axis CNC Machining Centers, CNC Turning Centers, and heavy-duty VTLs capable of machining complex geometries with tolerances up to 10 microns.</p>
+                            <ul class="list-unstyled text-muted">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i> 20+ VMC & HMC Machines</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i> Heavy-Duty Lathes</li>
+                                <li><i class="bi bi-check-circle-fill text-orange me-2"></i> CMM Inspection Station</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="infra-block reverse shadow-sm rounded overflow-hidden" data-aos="fade-up">
+                    <div class="col-lg-6 p-0">
+                        <img src="https://images.unsplash.com/photo-1565439387822-794dc02b667e?auto=format&fit=crop&w=1200&q=80" alt="Foundry" class="infra-img" style="height: 100%;">
+                    </div>
+                    <div class="col-lg-6 p-0 h-100">
+                        <div class="infra-content bg-white p-5 border border-end-0">
+                            <h3 class="text-navy fw-bold mb-4">Advanced Foundry</h3>
+                            <p class="text-muted mb-4" style="line-height: 1.8;">Equipped with high-frequency induction melting furnaces and automated sand molding lines, ensuring high-volume capacity without compromising metallurgical integrity.</p>
+                            <ul class="list-unstyled text-muted">
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i> Induction Furnaces (Up to 5 Tons)</li>
+                                <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i> Automated Molding Line</li>
+                                <li><i class="bi bi-check-circle-fill text-orange me-2"></i> Core Shooting Machines</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Virtual Tour CTA -->
+<section class="section-padding text-center text-white" style="background: linear-gradient(rgba(16,42,67,0.9), rgba(16,42,67,0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80') center/cover;">
+    <div class="container" data-aos="zoom-in">
+        <i class="bi bi-camera-video text-orange mb-4 d-inline-block" style="font-size: 4rem;"></i>
+        <h2 class="fw-bold mb-4">Take a Virtual Factory Tour</h2>
+        <p class="lead mb-5 mx-auto" style="max-width: 600px;">Explore our manufacturing capabilities and quality control labs through our interactive video gallery.</p>
+        <a href="{% url 'core:gallery' %}" class="btn btn-orange px-5 py-3">View Gallery</a>
+    </div>
+</section>
+{% endblock %}

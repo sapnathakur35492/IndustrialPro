@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Industries Served | IndustrialPro - Premium Metal Castings{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header" style="background-color: var(--primary-navy);">
+    <div class="container">
+        <h1 class="text-white fw-bold" data-aos="fade-up">Industries Served</h1>
+        <p class="text-light" data-aos="fade-up" data-aos-delay="100">Engineering critical components for the world's most demanding sectors.</p>
+    </div>
+</div>
+
+<section class="section-padding bg-light-grey">
+    <div class="container">
+        <div class="row g-4">
+            {% for industry in industries %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+                <div class="card card-custom h-100 overflow-hidden">
+                    {% if industry.image %}
+                    <img src="{{ industry.image.url }}" class="card-img-top" alt="{{ industry.name }}" style="height: 200px; object-fit: cover;">
+                    {% else %}
+                    <div class="bg-charcoal text-center d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="bi bi-gear-wide-connected text-orange" style="font-size: 5rem;"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body p-4 bg-white">
+                        <h4 class="fw-bold text-navy mb-3">{{ industry.name }}</h4>
+                        <p class="text-muted">{{ industry.description|default:"High-performance castings and components designed for critical applications within this industry, ensuring durability and precision." }}</p>
+                        <a href="{% url 'catalog:product_list' %}?industry={{ industry.slug }}" class="btn btn-outline-secondary btn-sm mt-3"><i class="bi bi-box me-2"></i>View Products</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <!-- Placeholders -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="card card-custom h-100 overflow-hidden">
+                    <div class="bg-charcoal text-center d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="bi bi-car-front text-orange" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-navy mb-3">Automotive</h4>
+                        <p class="text-muted">Engine blocks, transmission cases, and suspension components manufactured to exacting global standards.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="card card-custom h-100 overflow-hidden">
+                    <div class="bg-charcoal text-center d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="bi bi-cone-striped text-orange" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-navy mb-3">Construction</h4>
+                        <p class="text-muted">Heavy-duty wear parts, brackets, and structural castings designed to withstand extreme loads.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                <div class="card card-custom h-100 overflow-hidden">
+                    <div class="bg-charcoal text-center d-flex align-items-center justify-content-center" style="height: 200px;">
+                        <i class="bi bi-droplet-half text-orange" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold text-navy mb-3">Oil & Gas</h4>
+                        <p class="text-muted">High-pressure valve bodies, pump casings, and flanges in specialized corrosion-resistant alloys.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to action -->
+<section class="section-padding bg-navy text-white text-center" style="background-color: var(--primary-navy);">
+    <div class="container" data-aos="fade-up">
+        <h2 class="fw-bold text-white mb-4">Don't see your industry?</h2>
+        <p class="lead text-light mb-5 mx-auto" style="max-width: 700px;">We specialize in custom engineering and can manufacture components for virtually any heavy-duty industrial application.</p>
+        <a href="{% url 'core:contact_rfq' %}" class="btn btn-orange px-5 py-3">Discuss Your Project</a>
+    </div>
+</section>
+{% endblock %}

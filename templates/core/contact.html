@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Request RFQ | IndustrialPro - Premium Metal Castings{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="page-header" style="background-color: var(--primary-navy);">
+    <div class="container">
+        <h1 class="text-white fw-bold" data-aos="fade-up">Request for Quotation</h1>
+        <p class="text-light" data-aos="fade-up" data-aos-delay="100">Get a comprehensive technical quotation for your manufacturing requirements.</p>
+    </div>
+</div>
+
+<section class="section-padding bg-light-grey">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Info & Map -->
+            <div class="col-lg-4" data-aos="fade-right">
+                <div class="bg-white p-4 rounded shadow-sm mb-4">
+                    <h4 class="fw-bold text-navy mb-4">Contact Information</h4>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="bi bi-geo-alt-fill text-orange fs-4 me-3 mt-1"></i>
+                        <div>
+                            <h6 class="fw-bold text-navy mb-1">Global Headquarters</h6>
+                            <p class="text-muted small mb-0">{{ settings.address|default:"123 Industrial Ave, Manufacturing Hub, Global City, ZIP" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-3">
+                        <i class="bi bi-envelope-fill text-orange fs-4 me-3 mt-1"></i>
+                        <div>
+                            <h6 class="fw-bold text-navy mb-1">Email for RFQ</h6>
+                            <p class="text-muted small mb-0">{{ settings.email|default:"sales@industrialpro.com" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <i class="bi bi-telephone-fill text-orange fs-4 me-3 mt-1"></i>
+                        <div>
+                            <h6 class="fw-bold text-navy mb-1">Direct Sales Line</h6>
+                            <p class="text-muted small mb-0">{{ settings.phone|default:"+1 234 567 8900" }}</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="text-muted mb-4">
+                    
+                    <h6 class="fw-bold text-navy mb-3">Response Time Commitment</h6>
+                    <p class="text-muted small mb-0"><i class="bi bi-clock-history text-orange me-2"></i> Standard quotations provided within <strong>24-48 hours</strong>.</p>
+                </div>
+                
+                <!-- Google Maps -->
+                <div class="rounded overflow-hidden shadow-sm" style="height: 300px;">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDBWMg!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Full RFQ Form -->
+            <div class="col-lg-8" data-aos="fade-left">
+                <div class="card card-custom p-4 p-md-5">
+                    <h3 class="mb-4 text-navy">Submit Technical RFQ</h3>
+                    
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="d-none">
+                            {{ form.honeypot }}
+                        </div>
+                        
+                        <div class="row g-4">
+                            <!-- Company Details -->
+                            <div class="col-12">
+                                <h6 class="fw-bold text-navy border-bottom pb-2 mb-0">1. Company Details</h6>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">CONTACT NAME <span class="text-danger">*</span></label>
+                                {{ form.name }}
+                                <div class="text-danger small mt-1">{{ form.name.errors }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">COMPANY NAME <span class="text-danger">*</span></label>
+                                {{ form.company_name }}
+                                <div class="text-danger small mt-1">{{ form.company_name.errors }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">PROFESSIONAL EMAIL <span class="text-danger">*</span></label>
+                                {{ form.email }}
+                                <div class="text-danger small mt-1">{{ form.email.errors }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">PHONE NUMBER <span class="text-danger">*</span></label>
+                                {{ form.phone }}
+                                <div class="text-danger small mt-1">{{ form.phone.errors }}</div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted small fw-bold">COUNTRY <span class="text-danger">*</span></label>
+                                {{ form.country }}
+                                <div class="text-danger small mt-1">{{ form.country.errors }}</div>
+                            </div>
+
+                            <!-- Product Requirements -->
+                            <div class="col-12 mt-5">
+                                <h6 class="fw-bold text-navy border-bottom pb-2 mb-0">2. Technical Requirements</h6>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted small fw-bold">PRODUCT REQUIREMENT <span class="text-danger">*</span></label>
+                                {{ form.product_requirement }}
+                                <div class="text-danger small mt-1">{{ form.product_requirement.errors }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">MATERIAL / GRADE</label>
+                                {{ form.material_requirement }}
+                                <div class="text-danger small mt-1">{{ form.material_requirement.errors }}</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">ESTIMATED QUANTITY</label>
+                                {{ form.quantity }}
+                                <div class="text-danger small mt-1">{{ form.quantity.errors }}</div>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted small fw-bold">DETAILED SPECIFICATIONS / MESSAGE <span class="text-danger">*</span></label>
+                                {{ form.message }}
+                                <div class="text-danger small mt-1">{{ form.message.errors }}</div>
+                            </div>
+                            
+                            <!-- File Upload -->
+                            <div class="col-12 mt-4">
+                                <label class="form-label text-muted small fw-bold"><i class="bi bi-paperclip me-1 text-orange"></i> UPLOAD CAD DRAWINGS / SPECIFICATIONS</label>
+                                {{ form.file_upload }}
+                                <div class="form-text text-muted small mt-2">
+                                    <i class="bi bi-info-circle me-1"></i> Allowed formats: <strong>PDF, DWG, DXF, STEP, STP</strong>. Maximum size: <strong>20MB</strong>. All files are kept strictly confidential under NDA.
+                                </div>
+                                <div class="text-danger small mt-1">{{ form.file_upload.errors }}</div>
+                            </div>
+
+                            <div class="col-12 mt-5 text-end">
+                                <button type="submit" class="btn btn-orange px-5 py-3 rounded">Submit RFQ Request <i class="bi bi-arrow-right ms-2"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

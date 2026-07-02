@@ -1,0 +1,420 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Multi Sales Corporation — Industrial Supply & Manufacturing Excellence, Kolhapur{% endblock %}
+
+{% block content %}
+<!-- 1. HERO VIDEO SECTION -->
+<section id="home" class="hero-video-wrapper">
+    <video class="hero-video" autoplay loop muted playsinline>
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-hot-liquid-metal-being-poured-into-a-mold-42861-large.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <p class="hero-badge" data-aos="fade-down" data-aos-delay="200"><i class="bi bi-shield-check me-2"></i>ISO Certified &bull; Established 1999 &bull; Kolhapur, India</p>
+        <h1>Industrial Supply &<br>Manufacturing Excellence</h1>
+        <p class="hero-sub">Authorised dealer for <strong>SKR Engineering</strong> furnaces & <strong>Foseco</strong> foundry products. Manufacturer & exporter of precision aluminium castings to 10+ countries worldwide.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'core:contact_rfq' %}" class="btn btn-orange btn-lg">Get a Quote</a>
+            <a href="{% url 'core:about' %}" class="btn btn-outline-white btn-lg">About Us</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. ABOUT US OVERVIEW -->
+<section id="about" class="section-padding bg-white" data-aos="fade-up">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="section-title">Multi Sales Corporation</h2>
+                <p class="lead text-muted mb-4">Founded in 1999 by Mr. Anil Jadhav — a mechanical engineer with over 30 years of hands-on expertise in metallurgy, foundry operations, and precision machining.</p>
+                <p class="text-muted">Strategically headquartered in Kolhapur — a thriving industrial hub at the crossroads of major manufacturing centres including Pune, Mumbai, Aurangabad, Nasik, Hubli, Bengaluru, and Goa — Multi Sales Corporation has grown into one of the region's leading suppliers of world-class industrial equipment, materials, and components.</p>
+                <ul class="text-muted list-unstyled mt-4">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i>25+ Years of Industrial Supply Excellence</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i>Authorised Dealer — Foseco & SKR Engineering</li>
+                    <li class="mb-0"><i class="bi bi-check-circle-fill text-orange me-2"></i>Exporting Castings to 10+ Countries</li>
+                </ul>
+                <a href="{% url 'core:about' %}" class="btn btn-navy mt-4">Read Our Story <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="bg-light-grey d-flex align-items-center justify-content-center rounded-3 position-relative overflow-hidden about-img-box" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. STATISTICS -->
+<section class="section-padding bg-light-grey border-top border-bottom">
+    <div class="container">
+        <div class="row g-4" id="counter-section">
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+                <div class="stat-item h-100">
+                    <h3><span class="counter" data-target="25">0</span>+</h3>
+                    <p>Years Experience</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item h-100">
+                    <h3><span class="counter" data-target="5">0</span>+</h3>
+                    <p>Districts Covered</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-item h-100">
+                    <h3><span class="counter" data-target="10">0</span>+</h3>
+                    <p>Export Countries</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-item h-100">
+                    <h3>ISO</h3>
+                    <p>Certified Manufacturing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. PRODUCT CATEGORIES -->
+<section id="products" class="section-padding bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title mx-auto">Our Products & Offerings</h2>
+            <p class="text-muted mx-auto mt-4" style="max-width: 700px;">Comprehensive industrial solutions — from aluminium melting furnaces and foundry consumables to GDC machines, industrial filtration, and combustion catalysts.</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Furnaces -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <a href="{% url 'catalog:furnaces' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-fire"></i></div>
+                    <h4>Aluminium Furnaces</h4>
+                    <p class="text-muted">Electric, Gas, Oil Fired, Bale Out & Skalner furnaces by SKR Engineering, Bengaluru.</p>
+                    <span class="pcc-badge">SKR Engineering</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+            <!-- Foseco -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <a href="{% url 'catalog:foseco' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-droplet-half"></i></div>
+                    <h4>Foseco Products</h4>
+                    <p class="text-muted">Crucibles, Fluxes, Die Coatings, FDU Degassing, MTS & RPT/Density Index machines.</p>
+                    <span class="pcc-badge">Foseco — Vesuvius Group</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+            <!-- Spares -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <a href="{% url 'catalog:spares' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-tools"></i></div>
+                    <h4>Spares & Accessories</h4>
+                    <p class="text-muted">Burners, Heating Coils, Control Panels, Temperature Sensors & Metal Transfer Ladles.</p>
+                    <span class="pcc-badge">SKR Engineering</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+            <!-- GDC Machines -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <a href="{% url 'catalog:gdc_machines' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                    <h4>GDC Machines</h4>
+                    <p class="text-muted">Horizontal & Tilting Gravity Die Casting machines — developed in collaboration with Alucast.</p>
+                    <span class="pcc-badge">Multi Sales + Alucast</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+            <!-- Filters -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <a href="{% url 'catalog:filters' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-funnel"></i></div>
+                    <h4>Industrial Filters</h4>
+                    <p class="text-muted">Air Filters, Hydraulic Filters, Separators & Dust Collectors by Filman Filters, Pune.</p>
+                    <span class="pcc-badge">Filman Filters Pvt. Ltd.</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+            <!-- THERMOL -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <a href="{% url 'catalog:thermol' %}" class="text-decoration-none">
+                <div class="product-category-card">
+                    <div class="pcc-icon"><i class="bi bi-lightning-charge"></i></div>
+                    <h4>THERMOL Catalyst</h4>
+                    <p class="text-muted">Multifunctional combustion catalyst for liquid fuels — developed with IIT Mumbai.</p>
+                    <span class="pcc-badge">Abhitech Energycon</span>
+                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 5. MANUFACTURING SNAPSHOT -->
+<section class="section-padding bg-navy text-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h2 class="section-title text-white">Our Manufacturing</h2>
+                <p class="mb-4" style="color: #94A3B8; line-height: 1.8;">At Multi Sales Corporation, manufacturing is where decades of metallurgical expertise meet modern casting practice. We produce high-quality aluminium castings across three primary product families — serving customers across India and exporting to Sri Lanka, Argentina, UAE, Bahrain, Oman, United States, and Germany.</p>
+                <div class="row g-3 mb-4">
+                    <div class="col-sm-4">
+                        <div class="mfg-mini-card">
+                            <i class="bi bi-circle-fill"></i>
+                            <span>Handwheels</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mfg-mini-card">
+                            <i class="bi bi-circle-fill"></i>
+                            <span>Pulleys</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mfg-mini-card">
+                            <i class="bi bi-circle-fill"></i>
+                            <span>Couplings</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'catalog:manufacturing' %}" class="btn btn-orange">Explore Manufacturing <i class="bi bi-arrow-right ms-2"></i></a>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="rounded-3 overflow-hidden shadow-lg" style="height: 400px; background-image: url('https://images.unsplash.com/photo-1565439387822-794dc02b667e?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. INDUSTRIES WE SERVE -->
+<section id="industries" class="section-padding bg-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title mx-auto">Industries We Serve</h2>
+            <p class="text-muted mx-auto mt-4" style="max-width: 700px;">Over 25 years, Multi Sales Corporation has built deep domain knowledge across a diverse range of industries.</p>
+        </div>
+        
+        <div class="industry-grid">
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="0">
+                <i class="bi bi-fire"></i>
+                <h4>Foundries & Metallurgy</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Foundry materials, machinery & process consumables</p>
+            </div>
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="bi bi-car-front"></i>
+                <h4>Automobile</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Auto components & Tier 1/2 suppliers</p>
+            </div>
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="bi bi-cup-straw"></i>
+                <h4>Food & Beverage</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Industrial filters & process equipment</p>
+            </div>
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="bi bi-droplet-half"></i>
+                <h4>Petrochemical</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Filtration for high-temp environments</p>
+            </div>
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="bi bi-cpu"></i>
+                <h4>Technology & Engineering</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Precision machined components & materials</p>
+            </div>
+            <div class="industry-card" data-aos="fade-up" data-aos-delay="500">
+                <i class="bi bi-globe-americas"></i>
+                <h4>Export — Castings</h4>
+                <p class="text-muted small mt-2 mb-0 px-3">Aluminium & cast iron castings worldwide</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. CERTIFICATIONS & AUTHORIZATIONS RIBBON -->
+<section class="section-padding bg-light-grey">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title mx-auto">Certifications & Authorizations</h2>
+            <p class="text-muted mx-auto mt-4" style="max-width: 600px;">Quality is not a claim — it is a credential.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="cert-card h-100">
+                    <div class="cert-icon"><i class="bi bi-patch-check-fill"></i></div>
+                    <h5>ISO Certified</h5>
+                    <p class="text-muted small">ISO certified for manufacturing — internationally recognised standards across production processes, quality control systems, and operational workflows.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="cert-card h-100">
+                    <div class="cert-icon"><i class="bi bi-award-fill"></i></div>
+                    <h5>Authorised Dealer — Foseco</h5>
+                    <p class="text-muted small">One of the world's foremost names in foundry consumables and metallurgical products — a Vesuvius Group company.</p>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="cert-card h-100">
+                    <div class="cert-icon"><i class="bi bi-award-fill"></i></div>
+                    <h5>Authorised Dealer — SKR Engineering</h5>
+                    <p class="text-muted small">Bengaluru-based industrial furnace manufacturer with 25+ years of engineering excellence and 500+ satisfied customers.</p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <a href="{% url 'company:certifications' %}" class="btn btn-outline-dark px-4 py-2 rounded-pill fw-semibold">View All Certifications <i class="bi bi-arrow-right ms-2"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- 8. EXPORT MARKETS -->
+<section id="export" class="section-padding bg-white">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-right">
+                <!-- SVG World Map representation -->
+                <div class="bg-light-grey p-4 rounded shadow-sm position-relative overflow-hidden" style="min-height: 350px; background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; opacity: 0.8;">
+                    <!-- Highlighted Regions -->
+                    <div class="position-absolute" style="top: 35%; left: 22%;"><i class="bi bi-geo-alt-fill text-orange fs-3"></i></div>
+                    <div class="position-absolute" style="top: 30%; left: 48%;"><i class="bi bi-geo-alt-fill text-orange fs-3"></i></div>
+                    <div class="position-absolute" style="top: 45%; left: 58%;"><i class="bi bi-geo-alt-fill text-orange fs-3"></i></div>
+                    <div class="position-absolute" style="top: 40%; left: 68%;"><i class="bi bi-geo-alt-fill text-orange fs-3"></i></div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <h2 class="section-title text-navy mb-4">Global Export Markets</h2>
+                <p class="text-muted mb-4" style="line-height: 1.8;">Multi Sales Corporation exports aluminium and cast iron castings to industrial buyers across multiple continents — offering competitive pricing, reliable quality, and end-to-end documentation support.</p>
+                <div class="row g-3">
+                    <div class="col-6"><h6 class="text-navy fw-bold mb-2"><i class="bi bi-geo text-orange me-2"></i>South Asia</h6><p class="text-muted small">Sri Lanka, Vietnam, Indonesia</p></div>
+                    <div class="col-6"><h6 class="text-navy fw-bold mb-2"><i class="bi bi-geo text-orange me-2"></i>Middle East</h6><p class="text-muted small">Bahrain, Oman, UAE</p></div>
+                    <div class="col-6"><h6 class="text-navy fw-bold mb-2"><i class="bi bi-geo text-orange me-2"></i>The Americas</h6><p class="text-muted small">Argentina, United States</p></div>
+                    <div class="col-6"><h6 class="text-navy fw-bold mb-2"><i class="bi bi-geo text-orange me-2"></i>Europe</h6><p class="text-muted small">Germany, UK, France</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 9. CONTACT / RFQ FORM -->
+<section id="contact" class="section-padding bg-light-grey border-top">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Contact Info -->
+            <div class="col-lg-4" data-aos="fade-right">
+                <div class="bg-white p-5 rounded shadow-sm h-100">
+                    <h3 class="fw-bold text-navy mb-4">Contact Information</h3>
+                    
+                    <div class="d-flex mb-4">
+                        <i class="bi bi-geo-alt-fill text-orange fs-3 me-3"></i>
+                        <div>
+                            <h5 class="fw-bold text-navy mb-1">Headquarters</h5>
+                            <p class="text-muted mb-0">{{ settings.address|default:"Kolhapur, Maharashtra, India" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-4">
+                        <i class="bi bi-envelope-fill text-orange fs-3 me-3"></i>
+                        <div>
+                            <h5 class="fw-bold text-navy mb-1">Email Us</h5>
+                            <p class="text-muted mb-0">{{ settings.email|default:"info@multisalescorporation.com" }}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex mb-5">
+                        <i class="bi bi-telephone-fill text-orange fs-3 me-3"></i>
+                        <div>
+                            <h5 class="fw-bold text-navy mb-1">Call Us</h5>
+                            <p class="text-muted mb-0">{{ settings.phone|default:"+91-XXXXXXXXXX" }}</p>
+                        </div>
+                    </div>
+                    
+                    <hr class="text-muted mb-4">
+                    <h6 class="fw-bold text-navy mb-3">Response Time</h6>
+                    <p class="text-muted small mb-0"><i class="bi bi-clock-history text-orange me-2"></i> We respond to all inquiries within 24–48 hours.</p>
+                </div>
+            </div>
+
+            <!-- RFQ Form -->
+            <div class="col-lg-8" data-aos="fade-left">
+                <div class="card card-custom p-4 p-md-5 border-0 bg-white">
+                    <h3 class="mb-4 text-navy fw-bold">Submit an Inquiry</h3>
+                    
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="rfq_submit" value="1">
+                        <div class="d-none">
+                            {{ form.honeypot }}
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">NAME <span class="text-danger">*</span></label>
+                                {{ form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">COMPANY <span class="text-danger">*</span></label>
+                                {{ form.company_name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">EMAIL <span class="text-danger">*</span></label>
+                                {{ form.email }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">PHONE <span class="text-danger">*</span></label>
+                                {{ form.phone }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">COUNTRY <span class="text-danger">*</span></label>
+                                {{ form.country }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">PRODUCT REQUIREMENT <span class="text-danger">*</span></label>
+                                {{ form.product_requirement }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">MATERIAL / GRADE</label>
+                                {{ form.material_requirement }}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-muted small fw-bold">QUANTITY</label>
+                                {{ form.quantity }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted small fw-bold">MESSAGE / SPECS <span class="text-danger">*</span></label>
+                                {{ form.message }}
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label text-muted small fw-bold"><i class="bi bi-paperclip text-orange"></i> UPLOAD DRAWING (PDF, DWG, DXF, STEP, STP)</label>
+                                {{ form.file_upload }}
+                                <div class="form-text text-muted small mt-1">Max size: 20MB.</div>
+                            </div>
+                            <div class="col-12 mt-4 text-end">
+                                <button type="submit" class="btn btn-orange px-5 py-3 rounded w-100 fw-bold">Submit Request</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

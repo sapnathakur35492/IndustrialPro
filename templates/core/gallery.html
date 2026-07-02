@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery - IndustrialPro{% endblock %}
+{% block meta_description %}Explore our gallery of factory, machinery, castings, and inspection facilities. See IndustrialPro's world-class manufacturing capabilities.{% endblock %}
+
+{% block content %}
+
+<!-- Hero Header -->
+<section class="bg-navy text-white d-flex align-items-center" style="min-height: 340px; padding-top: 100px;">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold text-white mb-3" data-aos="fade-down">Our Gallery</h1>
+        <p class="lead text-white-50 mb-0" data-aos="fade-up" data-aos-delay="100">
+            A visual showcase of our manufacturing excellence, infrastructure, and precision craftsmanship.
+        </p>
+        <nav aria-label="breadcrumb" class="mt-4" data-aos="fade-up" data-aos-delay="200">
+            <ol class="breadcrumb justify-content-center" style="--bs-breadcrumb-divider-color: rgba(255,255,255,0.5);">
+                <li class="breadcrumb-item"><a href="{% url 'core:home' %}" class="text-orange text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item text-white-50 active" aria-current="page">Gallery</li>
+            </ol>
+        </nav>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+
+        <!-- Section Title -->
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="section-title">Explore Our Facilities</h2>
+            <p class="text-muted mt-3">Browse through our state-of-the-art manufacturing plant, precision machinery, and quality castings.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="text-center mb-5" data-aos="fade-up" data-aos-delay="100">
+            <div class="d-flex flex-wrap justify-content-center gap-2">
+                <button class="btn btn-orange gallery-filter-btn active" data-filter="all">
+                    <i class="bi bi-grid-3x3-gap-fill me-1"></i> All
+                </button>
+                <button class="btn btn-outline-secondary gallery-filter-btn" data-filter="Factory">
+                    <i class="bi bi-building me-1"></i> Factory
+                </button>
+                <button class="btn btn-outline-secondary gallery-filter-btn" data-filter="Machinery">
+                    <i class="bi bi-gear me-1"></i> Machinery
+                </button>
+                <button class="btn btn-outline-secondary gallery-filter-btn" data-filter="Castings">
+                    <i class="bi bi-box me-1"></i> Castings
+                </button>
+                <button class="btn btn-outline-secondary gallery-filter-btn" data-filter="Inspection">
+                    <i class="bi bi-search me-1"></i> Inspection
+                </button>
+                <button class="btn btn-outline-secondary gallery-filter-btn" data-filter="Video">
+                    <i class="bi bi-play-circle me-1"></i> Video
+                </button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="row g-4" id="galleryGrid">
+            {% for item in gallery_items %}
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="{{ item.category }}" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|divisibleby:3|yesno:'0,100,200' }}">
+                <div class="card border-0 shadow-sm h-100 gallery-card overflow-hidden">
+                    <div class="gallery-image-wrapper position-relative overflow-hidden" style="height: 280px;">
+                        <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+                        <!-- Overlay -->
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center"
+                             style="background: rgba(10, 25, 49, 0.7); opacity: 0; transition: opacity 0.4s ease;">
+                            {% if item.video_url %}
+                            <a href="{{ item.video_url }}" target="_blank" class="btn btn-orange btn-sm rounded-circle mb-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-play-fill fs-4"></i>
+                            </a>
+                            {% else %}
+                            <button class="btn btn-orange btn-sm rounded-circle mb-2 gallery-preview-btn" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+                                    data-bs-toggle="modal" data-bs-target="#galleryModal"
+                                    data-img="{{ item.image.url }}" data-title="{{ item.title }}">
+                                <i class="bi bi-arrows-fullscreen fs-5"></i>
+                            </button>
+                            {% endif %}
+                            <span class="text-white fw-semibold small mt-1">{{ item.title }}</span>
+                        </div>
+                        <!-- Category Badge -->
+                        <span class="badge bg-navy position-absolute top-0 end-0 m-3" style="font-size: 0.75rem;">
+                            {{ item.category }}
+                        </span>
+                    </div>
+                    <div class="card-body py-3 px-3">
+                        <h6 class="card-title fw-bold mb-0">{{ item.title }}</h6>
+                        <small class="text-orange">{{ item.category }}</small>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <i class="bi bi-images text-muted" style="font-size: 4rem;"></i>
+                <h4 class="text-muted mt-3">No gallery items yet</h4>
+                <p class="text-muted">Gallery images will appear here once added from the admin panel.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-navy section-padding text-center">
+    <div class="container" data-aos="fade-up">
+        <h3 class="text-white fw-bold mb-3">Impressed by Our Capabilities?</h3>
+        <p class="text-white-50 mb-4 mx-auto" style="max-width: 600px;">
+            Let us bring the same level of precision and quality to your next project. Request a quote today.
+        </p>
+        <a href="{% url 'core:contact_rfq' %}" class="btn btn-orange btn-lg px-5">
+            <i class="bi bi-send-fill me-2"></i>Request RFQ
+        </a>
+    </div>
+</section>
+
+<!-- Image Preview Modal -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 bg-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-white" id="galleryModalLabel">Image Preview</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-0 text-center">
+                <img src="" alt="" id="galleryModalImage" class="img-fluid w-100" style="max-height: 75vh; object-fit: contain;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Gallery Card Hover Effects */
+    .gallery-card:hover img {
+        transform: scale(1.1);
+    }
+    .gallery-card:hover .gallery-overlay {
+        opacity: 1 !important;
+    }
+    .gallery-card {
+        border-radius: 12px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15) !important;
+    }
+    /* Filter Button Styles */
+    .gallery-filter-btn {
+        border-radius: 50px;
+        padding: 8px 22px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+    .gallery-filter-btn.active {
+        background-color: var(--accent-color, #e67e22) !important;
+        border-color: var(--accent-color, #e67e22) !important;
+        color: #fff !important;
+    }
+    /* Smooth hide/show transitions */
+    .gallery-item {
+        transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .gallery-item.hidden {
+        opacity: 0;
+        transform: scale(0.8);
+        position: absolute !important;
+        pointer-events: none;
+        height: 0;
+        overflow: hidden;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Category Filter Logic ---
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            // Update active state
+            filterButtons.forEach(function(b) {
+                b.classList.remove('active');
+                b.classList.add('btn-outline-secondary');
+                b.classList.remove('btn-orange');
+            });
+            this.classList.add('active');
+            this.classList.remove('btn-outline-secondary');
+            this.classList.add('btn-orange');
+
+            const filter = this.getAttribute('data-filter');
+
+            galleryItems.forEach(function(item) {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.classList.remove('hidden');
+                    item.style.position = '';
+                    item.style.height = '';
+                    item.style.overflow = '';
+                    item.style.padding = '';
+                    item.style.margin = '';
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // --- Image Preview Modal Logic ---
+    const previewButtons = document.querySelectorAll('.gallery-preview-btn');
+    const modalImage = document.getElementById('galleryModalImage');
+    const modalTitle = document.getElementById('galleryModalLabel');
+
+    previewButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            modalImage.src = this.getAttribute('data-img');
+            modalImage.alt = this.getAttribute('data-title');
+            modalTitle.textContent = this.getAttribute('data-title');
+        });
+    });
+});
+</script>
+
+{% endblock content %}

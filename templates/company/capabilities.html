@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Manufacturing Capabilities | IndustrialPro{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<div class="bg-navy py-5 text-white text-center" data-aos="fade-up">
+    <div class="container section-padding">
+        <h1 class="display-4 fw-bold">Manufacturing Capabilities</h1>
+        <p class="lead text-orange">Precision Engineering from Concept to Completion</p>
+    </div>
+</div>
+
+<!-- Capabilities Section -->
+<section class="section-padding bg-white">
+    <div class="container">
+        <div class="row g-5">
+            {% for cap in capabilities %}
+            <div class="col-12" data-aos="fade-up">
+                <div class="row align-items-center {% if forloop.counter|divisibleby:2 %}flex-row-reverse{% endif %}">
+                    <div class="col-lg-6 mb-4 mb-lg-0" data-aos="{% if forloop.counter|divisibleby:2 %}fade-left{% else %}fade-right{% endif %}">
+                        {% if cap.process_image %}
+                        <img src="{{ cap.process_image.url }}" class="img-fluid rounded shadow-lg" alt="{{ cap.title }}">
+                        {% else %}
+                        <div class="bg-light rounded d-flex align-items-center justify-content-center shadow-sm" style="height: 350px;">
+                            <i class="bi bi-gear-wide-connected text-orange" style="font-size: 5rem;"></i>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6" data-aos="{% if forloop.counter|divisibleby:2 %}fade-right{% else %}fade-left{% endif %}">
+                        <div class="p-lg-4">
+                            <h2 class="section-title mb-3">{{ cap.title }}</h2>
+                            <p class="lead text-muted">{{ cap.description }}</p>
+                            
+                            {% if cap.machinery_used %}
+                            <h5 class="fw-bold mt-4 mb-3 border-bottom pb-2 text-orange">Machinery & Equipment</h5>
+                            <div class="text-muted">
+                                {{ cap.machinery_used|linebreaks }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5" data-aos="fade-up">
+                <p class="text-muted lead">Capabilities information will be updated soon.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- CTA Section -->
+        <div class="row mt-5 pt-4 border-top" data-aos="fade-up">
+            <div class="col-12 text-center">
+                <h3 class="mb-4 section-title">Ready to Start Your Project?</h3>
+                <a href="{% url 'contact_rfq' %}" class="btn btn-orange btn-lg px-5 shadow">Request a Quote</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

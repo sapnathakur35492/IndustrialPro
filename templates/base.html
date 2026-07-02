@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block meta_description %}Multi Sales Corporation, Kolhapur — Authorised dealer for SKR Engineering Furnaces, Foseco Foundry Products & industrial filtration. 25+ years of industrial supply excellence. Exporting aluminium castings to 10+ countries.{% endblock %}">
+    <meta name="keywords" content="Multi Sales Corporation, Kolhapur, aluminium furnaces, Foseco dealer, SKR Engineering, foundry supplies, aluminium castings, industrial filters, GDC machines, THERMOL, combustion catalyst">
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+    
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:title" content="{% block og_title %}Multi Sales Corporation — Industrial Supply & Manufacturing Excellence{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Authorised dealer for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Kolhapur, Maharashtra.{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}{% endblock %}">
+    
+    <title>{% block title %}Multi Sales Corporation — Industrial Supply & Manufacturing, Kolhapur{% endblock %}</title>
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ManufacturingBusiness",
+      "name": "Multi Sales Corporation",
+      "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}",
+      "@id": "{{ request.scheme }}://{{ request.get_host }}",
+      "url": "{{ request.scheme }}://{{ request.get_host }}",
+      "telephone": "{{ settings.phone|default:'+91-XXXXXXXXXX' }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kolhapur, Maharashtra",
+        "addressLocality": "Kolhapur",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "foundingDate": "1999",
+      "founder": {
+        "@type": "Person",
+        "name": "Mr. Anil Jadhav"
+      }
+    }
+    </script>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <!-- Transparent to Sticky Header -->
+    <header class="header-wrapper" id="mainHeader">
+        <nav class="navbar navbar-expand-xl d-flex align-items-center">
+            <div class="container-fluid px-3 px-xxl-5 d-flex align-items-center">
+                <a class="navbar-brand d-flex align-items-center m-0 p-0" href="/" style="line-height: 1;">
+                    <i class="bi bi-gear-fill me-2 text-orange" style="font-size: 1.8rem;"></i>
+                    <span style="display:inline-block; transform: translateY(2px); font-size: 1.15rem;">MULTI SALES CORP.</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(255,255,255,0.5);">
+                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:about' %}">About Us</a>
+                    </li>
+                    <!-- Products Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Products</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'catalog:furnaces' %}"><i class="bi bi-fire text-orange me-2"></i>Aluminium Furnaces</a></li>
+                            <li><a class="dropdown-item" href="{% url 'catalog:foseco' %}"><i class="bi bi-droplet-half text-orange me-2"></i>Foseco Products</a></li>
+                            <li><a class="dropdown-item" href="{% url 'catalog:spares' %}"><i class="bi bi-tools text-orange me-2"></i>Spares & Accessories</a></li>
+                            <li><a class="dropdown-item" href="{% url 'catalog:gdc_machines' %}"><i class="bi bi-gear-wide-connected text-orange me-2"></i>GDC Machines</a></li>
+                            <li><a class="dropdown-item" href="{% url 'catalog:filters' %}"><i class="bi bi-funnel text-orange me-2"></i>Industrial Filters</a></li>
+                            <li><a class="dropdown-item" href="{% url 'catalog:thermol' %}"><i class="bi bi-lightning-charge text-orange me-2"></i>THERMOL Catalyst</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'catalog:manufacturing' %}">Manufacturing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'company:certifications' %}">Certifications</a>
+                    </li>
+                    <li class="nav-item ms-xl-3 mt-3 mt-xl-0">
+                        <a class="btn btn-orange text-nowrap px-4 py-2" style="font-size: 15px; border-radius: 50px;" href="{% url 'core:contact_rfq' %}">Get a Quote</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <!-- Mega Footer -->
+    <footer class="mega-footer">
+        <div class="container">
+            <div class="row g-4 text-center text-md-start">
+            <div class="col-lg-4 col-md-6 mb-2 mb-md-0">
+                <h5 class="fw-bold mb-4">Multi Sales Corporation</h5>
+                <p class="mb-4">Authorised dealer for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Serving industries across India and internationally.</p>
+                <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+                    {% if settings.facebook_url %}<a href="{{ settings.facebook_url }}"><i class="bi bi-facebook fs-5"></i></a>{% endif %}
+                    {% if settings.twitter_url %}<a href="{{ settings.twitter_url }}"><i class="bi bi-twitter fs-5"></i></a>{% endif %}
+                    {% if settings.linkedin_url %}<a href="{{ settings.linkedin_url }}"><i class="bi bi-linkedin fs-5"></i></a>{% endif %}
+                </div>
+            </div>
+            
+            <div class="col-lg-2 col-md-6 mb-2 mb-md-0">
+                <h5 class="fw-bold mb-4">Products</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'catalog:furnaces' %}">Furnaces</a></li>
+                    <li><a href="{% url 'catalog:foseco' %}">Foseco Products</a></li>
+                    <li><a href="{% url 'catalog:spares' %}">Spares & Accessories</a></li>
+                    <li><a href="{% url 'catalog:gdc_machines' %}">GDC Machines</a></li>
+                    <li><a href="{% url 'catalog:filters' %}">Industrial Filters</a></li>
+                    <li><a href="{% url 'catalog:thermol' %}">THERMOL</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-2 col-md-6 mb-2 mb-md-0">
+                <h5 class="fw-bold mb-4">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'core:about' %}">About Us</a></li>
+                    <li><a href="{% url 'catalog:manufacturing' %}">Manufacturing</a></li>
+                    <li><a href="{% url 'company:certifications' %}">Certifications</a></li>
+                    <li><a href="{% url 'core:contact_rfq' %}">Contact / RFQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <h5 class="fw-bold mb-4">Contact</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-orange"></i> {{ settings.address|default:"Kolhapur, Maharashtra, India" }}</li>
+                    <li class="mb-2"><i class="bi bi-envelope-fill me-2 text-orange"></i> {{ settings.email|default:"info@multisalescorporation.com" }}</li>
+                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> {{ settings.phone|default:"+91-XXXXXXXXXX" }}</li>
+                </ul>
+            </div>
+        </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        <p class="mb-0" style="font-size: 0.9rem;">&copy; 2026 Multi Sales Corporation. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <a href="#" class="me-3" style="font-size: 0.9rem;">Privacy Policy</a>
+                        <a href="#" style="font-size: 0.9rem;">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky RFQ Widget -->
+    <div class="sticky-widget d-none d-md-block">
+        <a href="{% url 'core:contact_rfq' %}">
+            <span style="display:inline-block; transform: rotate(180deg);">RFQ</span>
+        </a>
+    </div>
+
+    <!-- Mobile Sticky Footer -->
+    <div class="d-block d-md-none fixed-bottom bg-navy p-2 shadow-lg text-center">
+        <a href="{% url 'core:contact_rfq' %}" class="btn btn-orange w-100 fw-bold">📄 Get a Quote</a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/{{ settings.phone|default:'911234567890' }}" target="_blank" class="whatsapp-btn d-none d-lg-flex">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

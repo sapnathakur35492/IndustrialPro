@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Products | IndustrialPro{% endblock %}
+
+{% block content %}
+<!-- Hero Header -->
+<div class="bg-navy py-5 text-white text-center" data-aos="fade-in">
+    <div class="container section-padding">
+        <h1 class="display-4 fw-bold">Our Products</h1>
+        <p class="lead text-orange">Engineered for Excellence</p>
+    </div>
+</div>
+
+<section class="section-padding bg-light">
+    <div class="container" data-aos="fade-up">
+        <!-- Section Title -->
+        <div class="text-center mb-5">
+            <h2 class="section-title fw-bold text-dark">Explore Our Catalog</h2>
+            <div class="divider bg-navy mx-auto mt-3" style="height: 3px; width: 60px;"></div>
+        </div>
+
+        <!-- Filter by category buttons -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+            <a href="{% url 'catalog:product_list' %}" class="btn {% if not current_category %}btn-orange{% else %}btn-outline-secondary{% endif %} px-4 rounded-pill">All Products</a>
+            {% for cat in categories %}
+            <a href="{% url 'catalog:product_list' %}?category={{ cat.slug }}" class="btn {% if current_category == cat.slug %}btn-orange{% else %}btn-outline-secondary{% endif %} px-4 rounded-pill">{{ cat.name }}</a>
+            {% endfor %}
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4">
+            {% for product in products %}
+            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+                <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden product-card">
+                    <div class="position-relative">
+                        {% if product.image %}
+                        <img src="{{ product.image.url }}" class="card-img-top w-100 object-fit-cover" alt="{{ product.name }}" style="height: 250px;" loading="lazy">
+                        {% else %}
+                        <div class="bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <i class="bi bi-box-seam text-secondary" style="font-size: 3rem;"></i>
+                        </div>
+                        {% endif %}
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-navy text-white px-3 py-2 rounded-pill">{{ product.category.name }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column">
+                        <h5 class="card-title fw-bold mb-3">{{ product.name }}</h5>
+                        <p class="card-text text-muted flex-grow-1">{{ product.description|truncatewords:15 }}</p>
+                        <a href="{% url 'catalog:product_detail' product.slug %}" class="btn btn-orange mt-3 w-100 text-uppercase fw-semibold">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-5" data-aos="fade-in">
+                <div class="p-5 bg-white rounded shadow-sm">
+                    <i class="bi bi-inbox text-muted mb-3 d-block" style="font-size: 4rem;"></i>
+                    <h4 class="text-muted fw-normal">No products found in this category.</h4>
+                    <a href="{% url 'catalog:product_list' %}" class="btn btn-outline-secondary mt-3">Clear Filters</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
