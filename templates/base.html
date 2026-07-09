@@ -4,7 +4,7 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="{% block meta_description %}Multi Sales Corporation, Kolhapur — Authorised dealer for SKR Engineering Furnaces, Foseco Foundry Products & industrial filtration. 25+ years of industrial supply excellence. Exporting aluminium castings to 10+ countries.{% endblock %}">
+    <meta name="description" content="{% block meta_description %}Multi Sales Corporation, Kolhapur — Authorised channel partner for SKR Engineering Furnaces, Foseco Foundry Products & industrial filtration. 25+ years of industrial supply excellence. Exporting aluminium castings to 10+ countries.{% endblock %}">
     <meta name="keywords" content="Multi Sales Corporation, Kolhapur, aluminium furnaces, Foseco dealer, SKR Engineering, foundry supplies, aluminium castings, industrial filters, GDC machines, THERMOL, combustion catalyst">
     <link rel="canonical" href="{{ request.build_absolute_uri }}">
     
@@ -12,7 +12,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:title" content="{% block og_title %}Multi Sales Corporation — Industrial Supply & Manufacturing Excellence{% endblock %}">
-    <meta property="og:description" content="{% block og_description %}Authorised dealer for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Kolhapur, Maharashtra.{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Authorised channel partner for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Kolhapur, Maharashtra.{% endblock %}">
     <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/og-default.jpg' %}{% endblock %}">
     
     <title>{% block title %}Multi Sales Corporation — Industrial Supply & Manufacturing, Kolhapur{% endblock %}</title>
@@ -26,7 +26,7 @@
       "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}",
       "@id": "{{ request.scheme }}://{{ request.get_host }}",
       "url": "{{ request.scheme }}://{{ request.get_host }}",
-      "telephone": "{{ settings.phone|default:'+91-XXXXXXXXXX' }}",
+      "telephone": "{{ settings.phone|default:'+91-9423042574' }}",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Kolhapur, Maharashtra",
@@ -65,8 +65,8 @@
                     <i class="bi bi-gear-fill me-2 text-orange" style="font-size: 1.8rem;"></i>
                     <span style="display:inline-block; transform: translateY(2px); font-size: 1.15rem;">MULTI SALES CORP.</span>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(255,255,255,0.5);">
-                    <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="mainNavbar">
                     <ul class="navbar-nav ms-auto mb-2 mb-xl-0 align-items-center">
@@ -75,6 +75,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'core:about' %}">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:blog_list' %}">Blog</a>
                     </li>
                     <!-- Products Dropdown -->
                     <li class="nav-item dropdown">
@@ -93,6 +96,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'company:certifications' %}">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'core:facility' %}">Facility</a>
                     </li>
                     <li class="nav-item ms-xl-3 mt-3 mt-xl-0">
                         <a class="btn btn-orange text-nowrap px-4 py-2" style="font-size: 15px; border-radius: 50px;" href="{% url 'core:contact_rfq' %}">Get a Quote</a>
@@ -115,7 +121,7 @@
             <div class="row g-4 text-center text-md-start">
             <div class="col-lg-4 col-md-6 mb-2 mb-md-0">
                 <h5 class="fw-bold mb-4">Multi Sales Corporation</h5>
-                <p class="mb-4">Authorised dealer for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Serving industries across India and internationally.</p>
+                <p class="mb-4">Authorised channel partner for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Serving industries across India and internationally.</p>
                 <div class="d-flex gap-3 justify-content-center justify-content-md-start">
                     {% if settings.facebook_url %}<a href="{{ settings.facebook_url }}"><i class="bi bi-facebook fs-5"></i></a>{% endif %}
                     {% if settings.twitter_url %}<a href="{{ settings.twitter_url }}"><i class="bi bi-twitter fs-5"></i></a>{% endif %}
@@ -140,17 +146,20 @@
                 <ul class="list-unstyled">
                     <li><a href="{% url 'core:about' %}">About Us</a></li>
                     <li><a href="{% url 'catalog:manufacturing' %}">Manufacturing</a></li>
+                    <li><a href="{% url 'core:facility' %}">Our Facility</a></li>
                     <li><a href="{% url 'company:certifications' %}">Certifications</a></li>
+                    <li><a href="{% url 'core:blog_list' %}">Blog</a></li>
                     <li><a href="{% url 'core:contact_rfq' %}">Contact / RFQ</a></li>
                 </ul>
             </div>
             
             <div class="col-lg-4 col-md-6">
                 <h5 class="fw-bold mb-4">Contact</h5>
-                <ul class="list-unstyled">
+                <ul class="list-unstyled" style="font-size: 0.9rem; line-height: 2;">
                     <li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-orange"></i> {{ settings.address|default:"Kolhapur, Maharashtra, India" }}</li>
-                    <li class="mb-2"><i class="bi bi-envelope-fill me-2 text-orange"></i> {{ settings.email|default:"info@multisalescorporation.com" }}</li>
-                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> {{ settings.phone|default:"+91-XXXXXXXXXX" }}</li>
+                    <li class="mb-2"><i class="bi bi-envelope-fill me-2 text-orange"></i> <a href="mailto:multi_sales@rediffmail.com" style="color:inherit;">multi_sales@rediffmail.com</a></li>
+                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> <a href="tel:+919423042574" style="color:inherit;">+91-9423042574</a></li>
+                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> <a href="tel:+918329543753" style="color:inherit;">+91 832-9543753</a></li>
                 </ul>
             </div>
         </div>

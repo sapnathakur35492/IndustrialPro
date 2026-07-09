@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import SiteSettings, GalleryItem
+from .models import SiteSettings, GalleryItem, Blog
 from .forms import RFQForm, InquiryForm
 from catalog.models import Category, Product, Industry
 from company.models import Capability, Infrastructure, Certification, ExportMarket
@@ -82,3 +82,20 @@ def gallery(request):
         'categories': categories,
     }
     return render(request, 'core/gallery.html', context)
+
+
+def facility(request):
+    settings = get_site_settings()
+    context = {
+        'settings': settings,
+    }
+    return render(request, 'core/facility.html', context)
+
+def blog_list(request):
+    settings = get_site_settings()
+    blogs = Blog.objects.all()
+    context = {
+        'settings': settings,
+        'blogs': blogs,
+    }
+    return render(request, 'core/blog_list.html', context)

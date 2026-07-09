@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="content-main">
+    <h2>Upload Blogs via Excel</h2>
+    <p>Please upload an `.xlsx` file. Ensure the first row is a header containing the exact columns: <strong>Title</strong>, <strong>Author</strong>, and <strong>Content</strong>.</p>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div>
+            <label for="excel_file" style="font-weight: bold; margin-bottom: 10px; display: block;">Select Excel File:</label>
+            <input type="file" name="excel_file" accept=".xlsx, .xls" required />
+        </div>
+        <br>
+        <div class="submit-row" style="text-align: left; background: none; border: none; padding-left: 0;">
+            <input type="submit" value="Upload and Import" class="default" />
+        </div>
+    </form>
+</div>
+{% endblock %}

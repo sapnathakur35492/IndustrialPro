@@ -6,7 +6,7 @@ class RFQForm(forms.ModelForm):
 
     class Meta:
         model = RFQRequest
-        fields = ['name', 'company_name', 'email', 'phone', 'country', 'product_requirement', 'material_requirement', 'quantity', 'message', 'file_upload']
+        fields = ['name', 'company_name', 'email', 'phone', 'country', 'product_requirement', 'message', 'file_upload']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Your Name'}),
             'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Company Name'}),
@@ -14,8 +14,6 @@ class RFQForm(forms.ModelForm):
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Phone Number'}),
             'country': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Country'}),
             'product_requirement': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Product Required'}),
-            'material_requirement': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Material (e.g. Stainless Steel)'}),
-            'quantity': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Quantity Needed'}),
             'message': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Additional Message'}),
             'file_upload': forms.FileInput(attrs={'class': 'form-control'}),
         }

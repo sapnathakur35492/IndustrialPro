@@ -13,7 +13,7 @@
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
         <p class="hero-badge" data-aos="fade-down" data-aos-delay="200"><i class="bi bi-shield-check me-2"></i>ISO Certified &bull; Established 1999 &bull; Kolhapur, India</p>
         <h1>Industrial Supply &<br>Manufacturing Excellence</h1>
-        <p class="hero-sub">Authorised dealer for <strong>SKR Engineering</strong> furnaces & <strong>Foseco</strong> foundry products. Manufacturer & exporter of precision aluminium castings to 10+ countries worldwide.</p>
+        <p class="hero-sub">Authorised channel partner for <strong>SKR Engineering</strong> furnaces &amp; <strong>Foseco</strong> foundry products. Manufacturer &amp; exporter of precision aluminium castings to 10+ countries worldwide.</p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
             <a href="{% url 'core:contact_rfq' %}" class="btn btn-orange btn-lg">Get a Quote</a>
             <a href="{% url 'core:about' %}" class="btn btn-outline-white btn-lg">About Us</a>
@@ -31,13 +31,13 @@
                 <p class="text-muted">Strategically headquartered in Kolhapur — a thriving industrial hub at the crossroads of major manufacturing centres including Pune, Mumbai, Aurangabad, Nasik, Hubli, Bengaluru, and Goa — Multi Sales Corporation has grown into one of the region's leading suppliers of world-class industrial equipment, materials, and components.</p>
                 <ul class="text-muted list-unstyled mt-4">
                     <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i>25+ Years of Industrial Supply Excellence</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill text-orange me-2"></i>Authorised Dealer — Foseco & SKR Engineering</li>
+                    <li class="mb-0"><i class="bi bi-check-circle-fill text-orange me-2"></i>Authorised Channel Partner — Foseco &amp; SKR Engineering</li>
                     <li class="mb-0"><i class="bi bi-check-circle-fill text-orange me-2"></i>Exporting Castings to 10+ Countries</li>
                 </ul>
                 <a href="{% url 'core:about' %}" class="btn btn-navy mt-4">Read Our Story <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <div class="bg-light-grey d-flex align-items-center justify-content-center rounded-3 position-relative overflow-hidden about-img-box" style="background-image: url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;">
+                <div class="bg-light-grey d-flex align-items-center justify-content-center rounded-3 position-relative overflow-hidden about-img-box" style="background-image: url('/media/gallery/casting_photo_31.webp'); background-size: cover; background-position: center;">
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
                 <a href="{% url 'catalog:manufacturing' %}" class="btn btn-orange">Explore Manufacturing <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <div class="rounded-3 overflow-hidden shadow-lg" style="height: 400px; background-image: url('https://images.unsplash.com/photo-1565439387822-794dc02b667e?auto=format&fit=crop&w=800&q=80'); background-size: cover; background-position: center;"></div>
+                <div class="rounded-3 overflow-hidden shadow-lg" style="height: 400px; background-image: url('/media/gallery/casting_photo_1.webp'); background-size: cover; background-position: center;"></div>
             </div>
         </div>
     </div>
@@ -258,14 +258,14 @@
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="cert-card h-100">
                     <div class="cert-icon"><i class="bi bi-award-fill"></i></div>
-                    <h5>Authorised Dealer — Foseco</h5>
+                    <h5>Authorised Channel Partner — Foseco</h5>
                     <p class="text-muted small">One of the world's foremost names in foundry consumables and metallurgical products — a Vesuvius Group company.</p>
                 </div>
             </div>
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="cert-card h-100">
                     <div class="cert-icon"><i class="bi bi-award-fill"></i></div>
-                    <h5>Authorised Dealer — SKR Engineering</h5>
+                    <h5>Authorised Channel Partner — SKR Engineering</h5>
                     <p class="text-muted small">Bengaluru-based industrial furnace manufacturer with 25+ years of engineering excellence and 500+ satisfied customers.</p>
                 </div>
             </div>
@@ -325,7 +325,7 @@
                         <i class="bi bi-envelope-fill text-orange fs-3 me-3"></i>
                         <div>
                             <h5 class="fw-bold text-navy mb-1">Email Us</h5>
-                            <p class="text-muted mb-0">{{ settings.email|default:"info@multisalescorporation.com" }}</p>
+                            <p class="text-muted mb-0"><a href="mailto:multi_sales@rediffmail.com" style="color:inherit;">multi_sales@rediffmail.com</a></p>
                         </div>
                     </div>
                     
@@ -333,7 +333,7 @@
                         <i class="bi bi-telephone-fill text-orange fs-3 me-3"></i>
                         <div>
                             <h5 class="fw-bold text-navy mb-1">Call Us</h5>
-                            <p class="text-muted mb-0">{{ settings.phone|default:"+91-XXXXXXXXXX" }}</p>
+                            <p class="text-muted mb-0"><a href="tel:+919423042574" style="color:inherit;">+91-9423042574</a> / <a href="tel:+918329543753" style="color:inherit;">+91 832-9543753</a></p>
                         </div>
                     </div>
                     

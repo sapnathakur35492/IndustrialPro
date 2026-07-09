@@ -24,7 +24,7 @@
                         <i class="bi bi-geo-alt-fill text-orange fs-4 me-3 mt-1"></i>
                         <div>
                             <h6 class="fw-bold text-navy mb-1">Global Headquarters</h6>
-                            <p class="text-muted small mb-0">{{ settings.address|default:"123 Industrial Ave, Manufacturing Hub, Global City, ZIP" }}</p>
+                            <p class="text-muted small mb-0">{{ settings.address|default:"Kolhapur, Maharashtra, India" }}</p>
                         </div>
                     </div>
                     
@@ -32,7 +32,7 @@
                         <i class="bi bi-envelope-fill text-orange fs-4 me-3 mt-1"></i>
                         <div>
                             <h6 class="fw-bold text-navy mb-1">Email for RFQ</h6>
-                            <p class="text-muted small mb-0">{{ settings.email|default:"sales@industrialpro.com" }}</p>
+                            <p class="text-muted small mb-0"><a href="mailto:multi_sales@rediffmail.com" style="color:inherit; text-decoration:none;">multi_sales@rediffmail.com</a></p>
                         </div>
                     </div>
                     
@@ -40,7 +40,7 @@
                         <i class="bi bi-telephone-fill text-orange fs-4 me-3 mt-1"></i>
                         <div>
                             <h6 class="fw-bold text-navy mb-1">Direct Sales Line</h6>
-                            <p class="text-muted small mb-0">{{ settings.phone|default:"+1 234 567 8900" }}</p>
+                            <p class="text-muted small mb-0"><a href="tel:+919423042574" style="color:inherit; text-decoration:none;">+91-9423042574</a> / <a href="tel:+918329543753" style="color:inherit; text-decoration:none;">+91 832-9543753</a></p>
                         </div>
                     </div>
                     
@@ -52,7 +52,7 @@
                 
                 <!-- Google Maps -->
                 <div class="rounded overflow-hidden shadow-sm" style="height: 300px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMDBWMg!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122283.79120005705!2d74.15646675037998!3d16.70845676880064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1000cdec07a29%3A0xece8ea642952e42f!2sKolhapur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1689100000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
@@ -115,16 +115,6 @@
                                 <label class="form-label text-muted small fw-bold">PRODUCT REQUIREMENT <span class="text-danger">*</span></label>
                                 {{ form.product_requirement }}
                                 <div class="text-danger small mt-1">{{ form.product_requirement.errors }}</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted small fw-bold">MATERIAL / GRADE</label>
-                                {{ form.material_requirement }}
-                                <div class="text-danger small mt-1">{{ form.material_requirement.errors }}</div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-muted small fw-bold">ESTIMATED QUANTITY</label>
-                                {{ form.quantity }}
-                                <div class="text-danger small mt-1">{{ form.quantity.errors }}</div>
                             </div>
                             <div class="col-12">
                                 <label class="form-label text-muted small fw-bold">DETAILED SPECIFICATIONS / MESSAGE <span class="text-danger">*</span></label>
