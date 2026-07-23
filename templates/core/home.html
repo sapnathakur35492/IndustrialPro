@@ -37,7 +37,7 @@
                 <a href="{% url 'core:about' %}" class="btn btn-navy mt-4">Read Our Story <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <img src="/media/gallery/casting_photo_31.webp" alt="About Us" class="img-fluid rounded-3 shadow w-100">
+                <img src="{% static 'images/manufacturing/couplings/coupling_01.jpg' %}" alt="About Us" class="img-fluid rounded-3 shadow w-100">
             </div>
         </div>
     </div>
@@ -88,11 +88,14 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <a href="{% url 'catalog:furnaces' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-fire"></i></div>
-                    <h4>Aluminium Furnaces</h4>
-                    <p class="text-muted">Electric, Gas, Oil Fired, Bale Out & Skalner furnaces by SKR Engineering, Bengaluru.</p>
-                    <span class="pcc-badge">SKR Engineering</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/furnaces/electric_1.jpg' %}" alt="Aluminium Furnaces" loading="lazy"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-fire"></i></div>
+                        <h4>Aluminium Furnaces</h4>
+                        <p class="text-muted">Electric, Gas, Oil Fired, Bale Out & Skalner furnaces by SKR Engineering, Bengaluru.</p>
+                        <span class="pcc-badge">SKR Engineering</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -100,11 +103,14 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <a href="{% url 'catalog:foseco' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-droplet-half"></i></div>
-                    <h4>Foseco Products</h4>
-                    <p class="text-muted">Crucibles, Fluxes, Die Coatings, FDU Degassing, MTS & RPT/Density Index machines.</p>
-                    <span class="pcc-badge">Foseco — Vesuvius Group</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/foseco/crucibles_banner.jpg' %}" alt="Foseco Products" loading="lazy"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-droplet-half"></i></div>
+                        <h4>Foseco Products</h4>
+                        <p class="text-muted">Crucibles, Fluxes, Die Coatings, FDU Degassing, MTS & RPT/Density Index machines.</p>
+                        <span class="pcc-badge">Foseco — Vesuvius Group</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -112,11 +118,14 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <a href="{% url 'catalog:spares' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-tools"></i></div>
-                    <h4>Spares & Accessories</h4>
-                    <p class="text-muted">Burners, Heating Coils, Control Panels, Temperature Sensors & Metal Transfer Ladles.</p>
-                    <span class="pcc-badge">SKR Engineering</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/spares/thermocouple_k.jpg' %}" alt="Spares & Accessories" loading="lazy" style="object-fit:contain; background:#fff;"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-tools"></i></div>
+                        <h4>Spares & Accessories</h4>
+                        <p class="text-muted">Burners, Heating Coils, Control Panels, Temperature Sensors & Metal Transfer Ladles.</p>
+                        <span class="pcc-badge">SKR Engineering</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -124,11 +133,14 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                 <a href="{% url 'catalog:gdc_machines' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-gear-wide-connected"></i></div>
-                    <h4>GDC Machines</h4>
-                    <p class="text-muted">Horizontal & Tilting Gravity Die Casting machines — developed in collaboration with Alucast.</p>
-                    <span class="pcc-badge">Multi Sales + Alucast</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/furnaces/tilting_1.jpg' %}" alt="GDC Machines" loading="lazy"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-gear-wide-connected"></i></div>
+                        <h4>GDC Machines</h4>
+                        <p class="text-muted">Horizontal & Tilting Gravity Die Casting machines — developed in collaboration with Alucast.</p>
+                        <span class="pcc-badge">Multi Sales + Alucast</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -136,23 +148,29 @@
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <a href="{% url 'catalog:filters' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-funnel"></i></div>
-                    <h4>Industrial Filters</h4>
-                    <p class="text-muted">Air Filters, Hydraulic Filters, Separators & Dust Collectors by Filman Filters, Pune.</p>
-                    <span class="pcc-badge">Filman Filters Pvt. Ltd.</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/filters/Air_Filter.jpg' %}" alt="Industrial Filters" loading="lazy"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-funnel"></i></div>
+                        <h4>Industrial Filters</h4>
+                        <p class="text-muted">Air Filters, Hydraulic Filters, Separators & Dust Collectors by Filman Filters, Pune.</p>
+                        <span class="pcc-badge">Filman Filters Pvt. Ltd.</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
-            <!-- THERMOL -->
+            <!-- Manufacturing / Castings as 6th product card instead of THERMOL image-less -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <a href="{% url 'catalog:thermol' %}" class="text-decoration-none">
+                <a href="{% url 'catalog:manufacturing' %}" class="text-decoration-none">
                 <div class="product-category-card">
-                    <div class="pcc-icon"><i class="bi bi-lightning-charge"></i></div>
-                    <h4>THERMOL Catalyst</h4>
-                    <p class="text-muted">Multifunctional combustion catalyst for liquid fuels — developed with IIT Mumbai.</p>
-                    <span class="pcc-badge">Abhitech Energycon</span>
-                    <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    <div class="pcc-image"><img src="{% static 'images/manufacturing/wheels/wheel_04.jpg' %}" alt="Aluminium Castings" loading="lazy"></div>
+                    <div class="pcc-body">
+                        <div class="pcc-icon"><i class="bi bi-gear-fill"></i></div>
+                        <h4>Aluminium Castings</h4>
+                        <p class="text-muted">Handwheels, Pulleys & Couplings — gravity die cast and exported to 10+ countries.</p>
+                        <span class="pcc-badge">Multi Sales Manufacturing</span>
+                        <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                    </div>
                 </div>
                 </a>
             </div>
@@ -166,7 +184,7 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <h2 class="section-title text-white">Our Manufacturing</h2>
-                <p class="mb-4" style="color: #94A3B8; line-height: 1.8;">At Multi Sales Corporation, manufacturing is where decades of metallurgical expertise meet modern casting practice. We produce high-quality aluminium castings across three primary product families — serving customers across India and exporting to Sri Lanka, Argentina, UAE, Bahrain, Oman, United States, and Germany.</p>
+                <p class="mb-4" style="color: #CBD5E1; line-height: 1.8;">At Multi Sales Corporation, manufacturing is where decades of metallurgical expertise meet modern casting practice. We produce high-quality aluminium castings across three primary product families — serving customers across India and exporting to Sri Lanka, Argentina, UAE, Bahrain, Oman, United States, and Germany.</p>
                 <div class="row g-3 mb-4">
                     <div class="col-sm-4">
                         <div class="mfg-mini-card">
@@ -190,7 +208,7 @@
                 <a href="{% url 'catalog:manufacturing' %}" class="btn btn-orange">Explore Manufacturing <i class="bi bi-arrow-right ms-2"></i></a>
             </div>
             <div class="col-lg-6" data-aos="fade-left">
-                <img src="/media/gallery/casting_photo_1.webp" alt="Manufacturing" class="img-fluid rounded-3 shadow-lg w-100">
+                <img src="{% static 'images/manufacturing/castings/casting_20.jpg' %}" alt="Manufacturing" class="img-fluid rounded-3 shadow-lg w-100">
             </div>
         </div>
     </div>

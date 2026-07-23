@@ -10,7 +10,7 @@
 <section class="bg-navy text-white d-flex align-items-center" style="min-height: 340px; padding-top: 100px;">
     <div class="container text-center">
         <h1 class="display-4 fw-bold text-white mb-3" data-aos="fade-down">Our Gallery</h1>
-        <p class="lead text-white-50 mb-0" data-aos="fade-up" data-aos-delay="100">
+        <p class="lead mb-0" data-aos="fade-up" data-aos-delay="100" style="color: #E2E8F0;">
             A visual showcase of our manufacturing excellence, infrastructure, and precision craftsmanship.
         </p>
         <nav aria-label="breadcrumb" class="mt-4" data-aos="fade-up" data-aos-delay="200">
@@ -63,7 +63,6 @@
                 <div class="card border-0 shadow-sm h-100 gallery-card overflow-hidden">
                     <div class="gallery-image-wrapper position-relative overflow-hidden" style="height: 280px;">
                         <img src="{{ item.image.url }}" alt="{{ item.title }}" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
-                        <!-- Overlay -->
                         <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center"
                              style="background: rgba(10, 25, 49, 0.7); opacity: 0; transition: opacity 0.4s ease;">
                             {% if item.video_url %}
@@ -79,7 +78,6 @@
                             {% endif %}
                             <span class="text-white fw-semibold small mt-1">{{ item.title }}</span>
                         </div>
-                        <!-- Category Badge -->
                         <span class="badge bg-navy position-absolute top-0 end-0 m-3" style="font-size: 0.75rem;">
                             {{ item.category }}
                         </span>
@@ -91,11 +89,31 @@
                 </div>
             </div>
             {% empty %}
-            <div class="col-12 text-center py-5">
-                <i class="bi bi-images text-muted" style="font-size: 4rem;"></i>
-                <h4 class="text-muted mt-3">No gallery items yet</h4>
-                <p class="text-muted">Gallery images will appear here once added from the admin panel.</p>
+            {% for item in static_gallery %}
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="{{ item.category }}" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|divisibleby:3|yesno:'0,100,200' }}">
+                <div class="card border-0 shadow-sm h-100 gallery-card overflow-hidden">
+                    <div class="gallery-image-wrapper position-relative overflow-hidden" style="height: 280px;">
+                        <img src="{{ item.image_url }}" alt="{{ item.title }}" class="w-100 h-100" style="object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center"
+                             style="background: rgba(10, 25, 49, 0.7); opacity: 0; transition: opacity 0.4s ease;">
+                            <button class="btn btn-orange btn-sm rounded-circle mb-2 gallery-preview-btn" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+                                    data-bs-toggle="modal" data-bs-target="#galleryModal"
+                                    data-img="{{ item.image_url }}" data-title="{{ item.title }}">
+                                <i class="bi bi-arrows-fullscreen fs-5"></i>
+                            </button>
+                            <span class="text-white fw-semibold small mt-1">{{ item.title }}</span>
+                        </div>
+                        <span class="badge bg-navy position-absolute top-0 end-0 m-3" style="font-size: 0.75rem;">
+                            {{ item.category }}
+                        </span>
+                    </div>
+                    <div class="card-body py-3 px-3">
+                        <h6 class="card-title fw-bold mb-0">{{ item.title }}</h6>
+                        <small class="text-orange">{{ item.category }}</small>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
             {% endfor %}
         </div>
 

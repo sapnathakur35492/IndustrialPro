@@ -74,11 +74,38 @@ def contact_rfq(request):
 def gallery(request):
     settings = get_site_settings()
     gallery_items = GalleryItem.objects.all()
-    categories = GalleryItem.objects.values_list('category', flat=True).distinct()
+    categories = list(GalleryItem.objects.values_list('category', flat=True).distinct())
+
+    # Fallback to Casting Photos when admin gallery is empty
+    static_gallery = []
+    if not gallery_items.exists():
+        from django.templatetags.static import static
+        titles = [
+            'Casting Overview', 'Precision Parts', 'Aluminium Components', 'Finished Castings',
+            'Machined Parts', 'Wheel Casting', 'Coupling Assembly', 'Industrial Handwheel',
+            'Valve Handwheel', 'Pulley Casting', 'Export Batch', 'Quality Inspection',
+            'Foundry Output', 'Die Cast Product', 'Component Set', 'GDC Casting',
+            'Machined Coupling', 'Handwheel Range', 'Wheel Family', 'Product Showcase',
+            'Aluminium Handwheels', 'Drive Pulleys', 'Cast Handwheels', 'Handwheel Set',
+            'Wheel Collection', 'Aluminium Couplings', 'Flange Couplings', 'Shaft Couplings',
+            'Coupling Detail', 'Precision Coupling', 'Coupling Finish',
+        ]
+        for i, title in enumerate(titles, 1):
+            category = 'Castings'
+            if i >= 21 and i <= 25:
+                category = 'Castings'
+            static_gallery.append({
+                'title': title,
+                'category': category,
+                'image_url': static(f'images/castings/cast_{i:02d}.jpg'),
+                'video_url': '',
+            })
+        categories = ['Castings']
 
     context = {
         'settings': settings,
         'gallery_items': gallery_items,
+        'static_gallery': static_gallery,
         'categories': categories,
     }
     return render(request, 'core/gallery.html', context)

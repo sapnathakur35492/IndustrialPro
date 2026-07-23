@@ -28,3 +28,10 @@ Thumbs.db
 # Environment
 .env
 .env.*
+
+# Source / unused assets (site uses processed files under static/images/)
+Casting Photos/
+Images.docx
+*.docx
+wetransfer_*/
+_images_docx_extract/

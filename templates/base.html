@@ -17,6 +17,11 @@
     
     <title>{% block title %}Multi Sales Corporation — Industrial Supply & Manufacturing, Kolhapur{% endblock %}</title>
 
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="any">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon-32.png' %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
     <!-- Schema.org -->
     <script type="application/ld+json">
     {
@@ -155,11 +160,11 @@
             
             <div class="col-lg-4 col-md-6">
                 <h5 class="fw-bold mb-4">Contact</h5>
-                <ul class="list-unstyled" style="font-size: 0.9rem; line-height: 2;">
-                    <li class="mb-2"><i class="bi bi-geo-alt-fill me-2 text-orange"></i> {{ settings.address|default:"Kolhapur, Maharashtra, India" }}</li>
-                    <li class="mb-2"><i class="bi bi-envelope-fill me-2 text-orange"></i> <a href="mailto:multi_sales@rediffmail.com" style="color:inherit;">multi_sales@rediffmail.com</a></li>
-                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> <a href="tel:+919423042574" style="color:inherit;">+91-9423042574</a></li>
-                    <li class="mb-2"><i class="bi bi-telephone-fill me-2 text-orange"></i> <a href="tel:+918329543753" style="color:inherit;">+91 832-9543753</a></li>
+                <ul class="list-unstyled footer-contact" style="font-size: 0.9rem;">
+                    <li><i class="bi bi-geo-alt-fill text-orange"></i><span>{{ settings.address|default:"Kolhapur, Maharashtra, India" }}</span></li>
+                    <li><i class="bi bi-envelope-fill text-orange"></i><a href="mailto:multi_sales@rediffmail.com">multi_sales@rediffmail.com</a></li>
+                    <li><i class="bi bi-telephone-fill text-orange"></i><a href="tel:+919423042574">+91-9423042574</a></li>
+                    <li><i class="bi bi-telephone-fill text-orange"></i><a href="tel:+918329543753">+91 832-9543753</a></li>
                 </ul>
             </div>
         </div>
@@ -202,5 +207,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- Custom JS -->
     <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

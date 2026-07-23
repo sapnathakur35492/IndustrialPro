@@ -1,43 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Our Products | IndustrialPro{% endblock %}
+{% block title %}Our Products | Multi Sales Corporation{% endblock %}
+{% block meta_description %}Explore Multi Sales Corporation products — Aluminium Furnaces, Foseco, Filters, Spares, GDC Machines, and Aluminium Castings.{% endblock %}
 
 {% block content %}
-<!-- Hero Header -->
-<div class="bg-navy py-5 text-white text-center" data-aos="fade-in">
-    <div class="container section-padding">
-        <h1 class="display-4 fw-bold">Our Products</h1>
-        <p class="lead text-orange">Engineered for Excellence</p>
+<section class="page-header">
+    <div class="container">
+        <h1 data-aos="fade-up">Our Products</h1>
+        <p data-aos="fade-up" data-aos-delay="100">Engineered for Excellence — Furnaces, Foundry Consumables, Filters & Castings</p>
     </div>
-</div>
+</section>
 
-<section class="section-padding bg-light">
+<section class="section-padding-md bg-light-grey">
     <div class="container" data-aos="fade-up">
-        <!-- Section Title -->
-        <div class="text-center mb-5">
-            <h2 class="section-title fw-bold text-dark">Explore Our Catalog</h2>
-            <div class="divider bg-navy mx-auto mt-3" style="height: 3px; width: 60px;"></div>
+        <div class="text-center mb-4">
+            <h2 class="section-title mx-auto">Explore Our Catalog</h2>
+            <p class="text-muted">Click any product line to view full details and images.</p>
         </div>
 
-        <!-- Filter by category buttons -->
-        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
-            <a href="{% url 'catalog:product_list' %}" class="btn {% if not current_category %}btn-orange{% else %}btn-outline-secondary{% endif %} px-4 rounded-pill">All Products</a>
-            {% for cat in categories %}
-            <a href="{% url 'catalog:product_list' %}?category={{ cat.slug }}" class="btn {% if current_category == cat.slug %}btn-orange{% else %}btn-outline-secondary{% endif %} px-4 rounded-pill">{{ cat.name }}</a>
-            {% endfor %}
-        </div>
-
-        <!-- Product Grid -->
         <div class="row g-4">
             {% for product in products %}
-            <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}00">
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
                 <div class="card h-100 border-0 shadow-sm rounded-3 overflow-hidden product-card">
                     <div class="position-relative">
                         {% if product.image %}
-                        <img src="{{ product.image.url }}" class="card-img-top w-100 object-fit-cover" alt="{{ product.name }}" style="height: 250px;" loading="lazy">
+                        <img src="{{ product.image.url }}" class="card-img-top w-100 object-fit-cover" alt="{{ product.name }}" style="height: 220px;" loading="lazy">
                         {% else %}
-                        <div class="bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center" style="height: 250px;">
+                        <div class="bg-secondary bg-opacity-10 d-flex align-items-center justify-content-center" style="height: 220px;">
                             <i class="bi bi-box-seam text-secondary" style="font-size: 3rem;"></i>
                         </div>
                         {% endif %}
@@ -53,12 +43,112 @@
                 </div>
             </div>
             {% empty %}
-            <div class="col-12 text-center py-5" data-aos="fade-in">
-                <div class="p-5 bg-white rounded shadow-sm">
-                    <i class="bi bi-inbox text-muted mb-3 d-block" style="font-size: 4rem;"></i>
-                    <h4 class="text-muted fw-normal">No products found in this category.</h4>
-                    <a href="{% url 'catalog:product_list' %}" class="btn btn-outline-secondary mt-3">Clear Filters</a>
-                </div>
+            <!-- Static catalog fallback with real product images -->
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:furnaces' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/furnaces/electric_1.jpg' %}" alt="Aluminium Furnaces" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>Aluminium Furnaces</h4>
+                            <p class="text-muted">Electric, Gas, Oil Fired, Bale Out & Skalner — SKR Engineering.</p>
+                            <span class="pcc-badge">SKR Engineering</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:foseco' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/foseco/valustar.jpg' %}" alt="Foseco" loading="lazy" style="object-fit:contain; background:#fff;"></div>
+                        <div class="pcc-body">
+                            <h4>Foseco Products</h4>
+                            <p class="text-muted">Crucibles, Fluxes, DYCOTE, FDU Degassing & MTS.</p>
+                            <span class="pcc-badge">Foseco — Vesuvius</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:filters' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/filters/Air_Filter.jpg' %}" alt="Industrial Filters" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>Industrial Filters</h4>
+                            <p class="text-muted">Air, Oil/Hydraulic, Separators & Dust Collectors.</p>
+                            <span class="pcc-badge">Filman Filters</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:spares' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/spares/burner.jpg' %}" alt="Spares" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>Spares & Accessories</h4>
+                            <p class="text-muted">Burners, Heating Coils, Control Panels & Sensors.</p>
+                            <span class="pcc-badge">SKR Engineering</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:gdc_machines' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/furnaces/tilting_1.jpg' %}" alt="GDC Machines" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>GDC Machines</h4>
+                            <p class="text-muted">Horizontal & Tilting Gravity Die Casting machines.</p>
+                            <span class="pcc-badge">Multi Sales + Alucast</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:manufacturing' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/manufacturing/wheels/wheel_01.jpg' %}" alt="Aluminium Castings" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>Aluminium Castings</h4>
+                            <p class="text-muted">Handwheels, Pulleys & Couplings — export ready.</p>
+                            <span class="pcc-badge">Manufacturing</span>
+                            <span class="pcc-link">View Gallery <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:thermol' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image d-flex align-items-center justify-content-center" style="background: linear-gradient(135deg,#102A43,#1a3d5c);">
+                            <i class="bi bi-lightning-charge-fill text-orange" style="font-size: 4rem;"></i>
+                        </div>
+                        <div class="pcc-body">
+                            <h4>THERMOL Catalyst</h4>
+                            <p class="text-muted">Combustion catalyst for liquid fuels — IIT Mumbai developed.</p>
+                            <span class="pcc-badge">Abhitech Energycon</span>
+                            <span class="pcc-link">Learn More <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4" data-aos="fade-up">
+                <a href="{% url 'catalog:filters' %}" class="text-decoration-none">
+                    <div class="product-category-card">
+                        <div class="pcc-image"><img src="{% static 'images/filters/Dust_Collector.jpg' %}" alt="Dust Collectors" loading="lazy"></div>
+                        <div class="pcc-body">
+                            <h4>Dust Collector Filters</h4>
+                            <p class="text-muted">Cartridge filters for shot blasting & sand casting.</p>
+                            <span class="pcc-badge">Filman Filters</span>
+                            <span class="pcc-link">View Range <i class="bi bi-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </a>
             </div>
             {% endfor %}
         </div>
