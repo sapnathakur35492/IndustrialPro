@@ -27,7 +27,7 @@
 <section class="section-padding-md bg-light-grey">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-9" data-aos="fade-up">
+            <div class="col-lg-9">
                 <article class="blog-article-card">
                     <div class="blog-article-body">
                         {{ blog.content|blog_content }}
@@ -46,7 +46,7 @@
                 <h3 class="section-title" style="font-size: 1.5rem;">More Articles</h3>
             </div>
             {% for item in related_blogs %}
-            <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+            <div class="col-md-4 mb-3">
                 <a href="{% url 'core:blog_detail' item.pk %}" class="text-decoration-none">
                     <div class="card h-100 shadow-sm border-0 blog-card">
                         <div class="card-body p-3">
