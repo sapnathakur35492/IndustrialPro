@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .models import SiteSettings, GalleryItem, Blog
 from .forms import RFQForm, InquiryForm
@@ -126,3 +126,14 @@ def blog_list(request):
         'blogs': blogs,
     }
     return render(request, 'core/blog_list.html', context)
+
+def blog_detail(request, pk):
+    settings = get_site_settings()
+    blog = get_object_or_404(Blog, pk=pk)
+    related = Blog.objects.exclude(pk=blog.pk)[:3]
+    context = {
+        'settings': settings,
+        'blog': blog,
+        'related_blogs': related,
+    }
+    return render(request, 'core/blog_detail.html', context)

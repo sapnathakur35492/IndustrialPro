@@ -17,19 +17,21 @@
             <div class="row g-4">
                 {% for blog in blogs %}
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.counter|default:1 }}00">
-                    <div class="card h-100 shadow-sm border-0 blog-card">
-                        <div class="card-body p-4">
-                            <h5 class="card-title fw-bold text-navy mb-3">{{ blog.title }}</h5>
-                            <h6 class="card-subtitle mb-3 text-muted small">
-                                <i class="bi bi-person me-1"></i> {{ blog.author }} | 
-                                <i class="bi bi-calendar me-1"></i> {{ blog.created_at|date:"M d, Y" }}
-                            </h6>
-                            <p class="card-text text-secondary">{{ blog.content|truncatewords:30 }}</p>
+                    <a href="{% url 'core:blog_detail' blog.pk %}" class="text-decoration-none d-block h-100">
+                        <div class="card h-100 shadow-sm border-0 blog-card">
+                            <div class="card-body p-4">
+                                <h5 class="card-title fw-bold text-navy mb-3">{{ blog.title }}</h5>
+                                <h6 class="card-subtitle mb-3 text-muted small">
+                                    <i class="bi bi-person me-1"></i> {{ blog.author }} |
+                                    <i class="bi bi-calendar me-1"></i> {{ blog.created_at|date:"M d, Y" }}
+                                </h6>
+                                <p class="card-text text-muted">{{ blog.content|truncatewords:30 }}</p>
+                            </div>
+                            <div class="card-footer bg-white border-0 px-4 pb-4 pt-0">
+                                <span class="text-orange fw-semibold">Read More <i class="bi bi-arrow-right"></i></span>
+                            </div>
                         </div>
-                        <div class="card-footer bg-white border-0 px-4 pb-4 pt-0">
-                            <!-- Could link to a detail page in the future, for now just show content -->
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>
@@ -46,10 +48,14 @@
 <style>
     .blog-card {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
     }
     .blog-card:hover {
         transform: translateY(-5px);
         box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+    }
+    .blog-card .card-text {
+        color: #000 !important;
     }
 </style>
 {% endblock %}
