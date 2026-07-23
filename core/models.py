@@ -83,12 +83,15 @@ class GalleryItem(models.Model):
         return self.title
 
 class Blog(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(
+        max_length=255,
+        help_text='Plain text only — do not include HTML tags in the title.',
+    )
     author = models.CharField(max_length=100, default="Admin")
     content = models.TextField(
         help_text=(
-            "Paste HTML content. Use &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, "
-            "&lt;li&gt;, &lt;strong&gt;, &lt;a&gt;, etc. HTML is rendered on the site."
+            'HTML content. Prefer the admin visual editor (Heading 2 / Heading 3). '
+            'Tags like &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt; are rendered on the site.'
         )
     )
     created_at = models.DateTimeField(auto_now_add=True)
@@ -97,4 +100,15 @@ class Blog(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return self.title
+        return self.display_title
+
+    @property
+    def display_title(self):
+        from django.utils.html import strip_tags
+        return strip_tags(self.title or '').strip()
+
+    def save(self, *args, **kwargs):
+        from django.utils.html import strip_tags
+        if self.title:
+            self.title = strip_tags(self.title).strip()
+        super().save(*args, **kwargs)
