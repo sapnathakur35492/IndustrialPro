@@ -85,7 +85,12 @@ class GalleryItem(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=100, default="Admin")
-    content = models.TextField()
+    content = models.TextField(
+        help_text=(
+            "Paste HTML content. Use &lt;h2&gt;, &lt;h3&gt;, &lt;p&gt;, &lt;ul&gt;, "
+            "&lt;li&gt;, &lt;strong&gt;, &lt;a&gt;, etc. HTML is rendered on the site."
+        )
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

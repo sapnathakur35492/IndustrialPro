@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog_extras %}
 
 {% block title %}{{ blog.title }} | Blog | {{ settings.company_name|default:"Multi Sales Corporation" }}{% endblock %}
-{% block meta_description %}{{ blog.content|truncatewords:40|striptags }}{% endblock %}
+{% block meta_description %}{{ blog.content|striptags|truncatewords:40 }}{% endblock %}
 
 {% block content %}
 <section class="page-header">
@@ -23,13 +24,13 @@
     </div>
 </section>
 
-<section class="section-padding-md bg-white">
+<section class="section-padding-md bg-light-grey">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8" data-aos="fade-up">
-                <article class="blog-article">
-                    <div class="blog-article-body text-muted">
-                        {{ blog.content|linebreaks }}
+            <div class="col-lg-9" data-aos="fade-up">
+                <article class="blog-article-card">
+                    <div class="blog-article-body">
+                        {{ blog.content|blog_content }}
                     </div>
                     <hr class="my-4">
                     <a href="{% url 'core:blog_list' %}" class="btn btn-navy">
@@ -40,7 +41,7 @@
         </div>
 
         {% if related_blogs %}
-        <div class="row mt-5 pt-4 border-top">
+        <div class="row mt-5 pt-2">
             <div class="col-12 mb-4">
                 <h3 class="section-title" style="font-size: 1.5rem;">More Articles</h3>
             </div>
@@ -50,7 +51,7 @@
                     <div class="card h-100 shadow-sm border-0 blog-card">
                         <div class="card-body p-3">
                             <h5 class="card-title fw-bold text-navy mb-2" style="font-size: 1rem;">{{ item.title }}</h5>
-                            <p class="card-text text-muted small mb-0">{{ item.content|truncatewords:18 }}</p>
+                            <p class="card-text text-muted small mb-0">{{ item.content|striptags|truncatewords:18 }}</p>
                         </div>
                     </div>
                 </a>
@@ -60,26 +61,4 @@
         {% endif %}
     </div>
 </section>
-
-<style>
-    .blog-article-body {
-        font-size: 1.05rem;
-        line-height: 1.85;
-        color: #000 !important;
-    }
-    .blog-article-body p {
-        margin-bottom: 1.1rem;
-        color: #000 !important;
-    }
-    .blog-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .blog-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-    }
-    .breadcrumb-item + .breadcrumb-item::before {
-        color: rgba(255,255,255,0.45);
-    }
-</style>
 {% endblock %}

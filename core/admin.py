@@ -1,8 +1,27 @@
 from django.urls import path
 from django.shortcuts import render, redirect
 from django.contrib import admin, messages
+from django import forms
 import openpyxl
 from .models import SiteSettings, RFQRequest, Inquiry, GalleryItem, Blog
+
+
+class BlogAdminForm(forms.ModelForm):
+    class Meta:
+        model = Blog
+        fields = '__all__'
+        widgets = {
+            'content': forms.Textarea(attrs={
+                'rows': 28,
+                'style': 'font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 13px;',
+                'placeholder': (
+                    '<h2>Section heading</h2>\n'
+                    '<p>Paragraph text...</p>\n'
+                    '<ul>\n  <li>Point one</li>\n  <li>Point two</li>\n</ul>'
+                ),
+            }),
+        }
+
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -29,6 +48,7 @@ class GalleryItemAdmin(admin.ModelAdmin):
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
+    form = BlogAdminForm
     list_display = ('title', 'author', 'created_at')
     search_fields = ('title', 'author')
     change_list_template = "admin/core/blog/change_list.html"
