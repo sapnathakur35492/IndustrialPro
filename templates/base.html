@@ -17,10 +17,11 @@
     
     <title>{% block title %}Multi Sales Corporation — Industrial Supply & Manufacturing, Kolhapur{% endblock %}</title>
 
-    <!-- Favicon -->
-    <link rel="icon" href="{% static 'images/favicon.ico' %}" sizes="any">
-    <link rel="icon" type="image/png" href="{% static 'images/favicon-32.png' %}" sizes="32x32">
-    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+    <!-- Favicon — Multi Sales "M" monogram -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}?v=2" sizes="any">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon-32.png' %}?v=2" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static 'images/favicon-192.png' %}?v=2" sizes="192x192">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}?v=2">
 
     <!-- Schema.org -->
     <script type="application/ld+json">
@@ -125,8 +126,8 @@
         <div class="container">
             <div class="row g-4 text-center text-md-start">
             <div class="col-lg-4 col-md-6 mb-2 mb-md-0">
-                <h5 class="fw-bold mb-4">Multi Sales Corporation</h5>
-                <p class="mb-4">Authorised channel partner for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Serving industries across India and internationally.</p>
+                <h5 class="fw-bold mb-2">Multi Sales Corporation</h5>
+                <p class="mb-3">Authorised channel partner for SKR Engineering & Foseco. Aluminium castings manufacturer & exporter since 1999. Serving industries across India and internationally.</p>
                 <div class="d-flex gap-3 justify-content-center justify-content-md-start">
                     {% if settings.facebook_url %}<a href="{{ settings.facebook_url }}"><i class="bi bi-facebook fs-5"></i></a>{% endif %}
                     {% if settings.twitter_url %}<a href="{{ settings.twitter_url }}"><i class="bi bi-twitter fs-5"></i></a>{% endif %}
@@ -135,7 +136,7 @@
             </div>
             
             <div class="col-lg-2 col-md-6 mb-2 mb-md-0">
-                <h5 class="fw-bold mb-4">Products</h5>
+                <h5 class="fw-bold mb-3">Products</h5>
                 <ul class="list-unstyled">
                     <li><a href="{% url 'catalog:furnaces' %}">Furnaces</a></li>
                     <li><a href="{% url 'catalog:foseco' %}">Foseco Products</a></li>
@@ -147,7 +148,7 @@
             </div>
             
             <div class="col-lg-2 col-md-6 mb-2 mb-md-0">
-                <h5 class="fw-bold mb-4">Quick Links</h5>
+                <h5 class="fw-bold mb-3">Quick Links</h5>
                 <ul class="list-unstyled">
                     <li><a href="{% url 'core:about' %}">About Us</a></li>
                     <li><a href="{% url 'catalog:manufacturing' %}">Manufacturing</a></li>
@@ -159,8 +160,8 @@
             </div>
             
             <div class="col-lg-4 col-md-6">
-                <h5 class="fw-bold mb-4">Contact</h5>
-                <ul class="list-unstyled footer-contact" style="font-size: 0.9rem;">
+                <h5 class="fw-bold mb-3">Contact</h5>
+                <ul class="list-unstyled footer-contact">
                     <li><i class="bi bi-geo-alt-fill text-orange"></i><span>{{ settings.address|default:"Kolhapur, Maharashtra, India" }}</span></li>
                     <li><i class="bi bi-envelope-fill text-orange"></i><a href="mailto:multi_sales@rediffmail.com">multi_sales@rediffmail.com</a></li>
                     <li><i class="bi bi-telephone-fill text-orange"></i><a href="tel:+919423042574">+91-9423042574</a></li>
